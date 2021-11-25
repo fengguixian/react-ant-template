@@ -4,6 +4,7 @@ import {
     IdcardOutlined,
     LockOutlined,
 } from '@ant-design/icons';
+import { useNavigate } from "react-router-dom";
 
 function LoginFrom({ onConfirm }) {
     const [form] = Form.useForm();
@@ -49,11 +50,13 @@ function LoginFrom({ onConfirm }) {
 }
 
 const Login = (props) => {
+    const navigate = useNavigate();
     return (
         <div className='login-root-div'>
             <LoginFrom 
             onConfirm={() => {
                 window.localStorage.setItem('token', '123');
+                navigate('/')
             }}/>
         </div>
     )
