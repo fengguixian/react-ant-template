@@ -1,0 +1,43 @@
+.login-root-div{
+    background: #3C3C3C;
+    height: 100vh;
+}
+
+.login-box{
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px 30px;
+    width: 380px;
+    border: 1px solid #e5e5e5;
+    border-radius: 6px;
+    margin: 0 auto;
+    background: #fff;
+    text-align: left;
+}
+
+.login-box_title {
+    margin-bottom: 30px;
+    padding: 0;
+    font-size: 20px;
+    color: #000;
+    text-align: center;
+}
+
+/* .login-box-from_account{
+    margin: 10px 0px;
+    width: 100%;
+    height: 30px;
+} */
+
+.login-box-from_password{
+    margin: 10px 0px 0px;
+    /* width: 100%;
+    height: 30px; */
+}
+
+.login-box_btn{
+    margin-top: 20px;
+    width: 100%;
+}
