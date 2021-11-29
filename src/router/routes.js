@@ -6,8 +6,15 @@ import AdminUsers from "../pages/users/AdminUsers";
 import GuestUsers from "../pages/users/GuestUsers";
 import About from "../pages/about/About";
 import Test from '../pages/test/Test';
+
 import {
-    TeamOutlined
+    TeamOutlined,
+    HomeFilled,
+    InfoCircleFilled,
+    AppstoreFilled,
+    ProfileFilled,
+    AppleFilled,
+    AndroidFilled
 } from '@ant-design/icons';
 
 export const loginRoutes = [
@@ -25,23 +32,45 @@ export const loginRoutes = [
 
 export const menusRoutes = [
     {
-        path: '/home',
+        path: 'home',
         component: Home,
         meta: {
             title: 'Home',
             isNeedLogin: true,
-            icon: <TeamOutlined />,
+            icon: <HomeFilled />,
             key: 'home',
             authIds: []
         }
     },
     {
-        path: '/users',
+        path: 'about',
+        component: About,
+        meta: {
+            title: 'About',
+            isNeedLogin: true,
+            icon: <InfoCircleFilled />,
+            key: 'about',
+            authIds: []
+        }
+    },
+    {
+        path: 'test',
+        component: Test,
+        meta: {
+            title: 'Test',
+            isNeedLogin: true,
+            icon: <AppstoreFilled />,
+            key: 'test',
+            authIds: []
+        }
+    },
+    {
+        path: 'users',
         component: Users,
         meta: {
             title: 'Users',
             isNeedLogin: true,
-            icon: <TeamOutlined />,
+            icon: <ProfileFilled />,
             key: 'users',
             authIds: []
         },
@@ -52,7 +81,7 @@ export const menusRoutes = [
                 meta: {
                     title: 'Admins',
                     isNeedLogin: true,
-                    icon: <TeamOutlined />,
+                    icon: <AppleFilled />,
                     key: 'admins',
                     authIds: []
                 }
@@ -63,39 +92,17 @@ export const menusRoutes = [
                 meta: {
                     title: 'Guests',
                     isNeedLogin: true,
-                    icon: <TeamOutlined />,
+                    icon: <AndroidFilled />,
                     key: 'guests',
                     authIds: []
                 }
             }
         ]
     },
-    {
-        path: '/about',
-        component: About,
-        meta: {
-            title: 'About',
-            isNeedLogin: true,
-            icon: <TeamOutlined />,
-            key: 'about',
-            authIds: []
-        }
-    },
-    {
-        path: '/test',
-        component: Test,
-        meta: {
-            title: 'Test',
-            isNeedLogin: true,
-            icon: <TeamOutlined />,
-            key: 'test',
-            authIds: []
-        }
-    },
 ]
 
 export const mainLayoutRoutes ={
-        path: '/',
+        path: '/*',
         component: MainLayout,
         meta: {
             title: '',
