@@ -3,12 +3,6 @@ import { Route, Routes, Navigate } from "react-router-dom";
 import SideMenus from "./SideMenus";
 import { menusRoutes } from '../../router/routes'
 import Page404 from "../errors/Page404";
-// import AdminUsers from "../../pages/users/AdminUsers";
-// import Home from "../../pages/home/Home";
-// import About from "../../pages/about/About";
-// import Test from "../../pages/test/Test";
-// import Users from "../../pages/users/Users";
-// import GuestUsers from "../../pages/users/GuestUsers";
 import './MainLayout.css';
 import ContentHeader from "./ContentHeader";
 
@@ -49,16 +43,9 @@ const MainLayout = (props) => {
                         >
                             <Routes>
                                 {mRoutes}
+                                <Route key='main' path='/' exact element={<Navigate to='home' />}></Route>
                                 <Route key='page404' path='/*' exact element={<Page404 />}></Route>
                             </Routes>
-                            {/* <Routes>
-                                <Route key='home' path='home' element={<Home />}></Route>
-                                <Route key='about' path='about' element={<About />}></Route>
-                                <Route key='test' path='test' element={<Test />}></Route>
-                                <Route key='users' path='users' element={<Users />}></Route>
-                                <Route key='admins' path='users/admins' element={<AdminUsers />}></Route>
-                                <Route key='guests' path='users/guests' element={<GuestUsers />}></Route>
-                            </Routes> */}
                         </Content>
                     </Layout>
                 </Layout>
