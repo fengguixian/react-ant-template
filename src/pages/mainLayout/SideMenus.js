@@ -1,8 +1,8 @@
 import { Layout, Menu } from "antd"
 import { Link } from 'react-router-dom';
-import logo from '../../logo.svg';
 import { menusRoutes } from '../../router/routes'
 import './SideMenus.css'
+import { connect } from "react-redux"
 import {
     TeamOutlined
 } from '@ant-design/icons';
@@ -41,7 +41,7 @@ function filterMenusFromMainRoutes(routes) {
 // }
 
 
-function SideMenus() {
+function SideMenus(props) {
     let menus = filterMenusFromMainRoutes(menusRoutes);
 
     function menuClick(e) {
@@ -58,9 +58,9 @@ function SideMenus() {
             padding: '30px 0px 0px 0px'
         }}
         collapsible
+        collapsed={props.fold}
         trigger={null}
         >
-            {/* <img src={logo} className="App-logo" alt="logo" /> */}
             <Menu 
             onClick={menuClick}
             mode="inline"
@@ -94,4 +94,12 @@ function SideMenus() {
     );
 }
 
-export default SideMenus;
+const mapStateToProps = state => {
+    return {
+        fold: state.sider.fold,
+    }
+}
+
+export default connect(
+    mapStateToProps
+)(SideMenus);

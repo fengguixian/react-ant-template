@@ -3,15 +3,16 @@ import { Route, Routes, Navigate } from "react-router-dom";
 import SideMenus from "./SideMenus";
 import { menusRoutes } from '../../router/routes'
 import Page404 from "../errors/Page404";
-import AdminUsers from "../../pages/users/AdminUsers";
-import Home from "../../pages/home/Home";
-import About from "../../pages/about/About";
-import Test from "../../pages/test/Test";
-import Users from "../../pages/users/Users";
-import GuestUsers from "../../pages/users/GuestUsers";
+// import AdminUsers from "../../pages/users/AdminUsers";
+// import Home from "../../pages/home/Home";
+// import About from "../../pages/about/About";
+// import Test from "../../pages/test/Test";
+// import Users from "../../pages/users/Users";
+// import GuestUsers from "../../pages/users/GuestUsers";
 import './MainLayout.css';
+import ContentHeader from "./ContentHeader";
 
-const { Content, Header } = Layout;
+const { Content } = Layout;
 
 const MainLayout = (props) => {
     let token = window.localStorage.getItem('token');
@@ -38,7 +39,7 @@ const MainLayout = (props) => {
                 <Layout>
                     <SideMenus />
                     <Layout>
-                        <Header className='header' style={{background: 'white'}}>Welcome To Gavin React Template</Header>
+                        <ContentHeader />
                         <Content
                         style={{
                             background: '#ffffff',
