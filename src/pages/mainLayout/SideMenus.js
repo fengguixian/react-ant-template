@@ -2,6 +2,7 @@ import { Layout, Menu } from "antd"
 import { Link } from 'react-router-dom';
 import logo from '../../logo.svg';
 import { menusRoutes } from '../../router/routes'
+import './SideMenus.css'
 import {
     TeamOutlined
 } from '@ant-design/icons';
@@ -48,12 +49,19 @@ function SideMenus() {
     }
 
     return (
-        <Sider width={256} style={{
+        <Sider 
+        className='sider'
+        theme='light'
+        width={256} 
+        style={{
             minHeight: 640,
-        }}>
-            <img src={logo} className="App-logo" alt="logo" />
+            padding: '30px 0px 0px 0px'
+        }}
+        collapsible
+        trigger={null}
+        >
+            {/* <img src={logo} className="App-logo" alt="logo" /> */}
             <Menu 
-            theme="dark" 
             onClick={menuClick}
             mode="inline"
             >
@@ -63,7 +71,7 @@ function SideMenus() {
                             const childs = route.children.map(ch => {
                                 return (
                                     <Menu.Item key={ch.meta.key} icon={ch.meta.icon || TeamOutlined}>
-                                        <Link key={ch.meta.key}  to={ch.path}>{ch.meta.title}</Link>
+                                        <Link key={ch.meta.key} to={ch.path}>{ch.meta.title}</Link>
                                     </Menu.Item>
                                 )
                             });
