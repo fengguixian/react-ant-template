@@ -7,7 +7,7 @@ const themeReducer = (state = initialState, action) => {
         case 'THEME_ACTION_CHANGE': {
             return {
                 ...state,
-                open: state.theme==='light' ? 'dark' : 'light'
+                theme: state.theme==='light' ? 'dark' : 'light'
             };
         }
     }
