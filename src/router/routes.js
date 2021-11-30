@@ -4,6 +4,7 @@ import Home from "../pages/home/Home";
 import Users from "../pages/users/Users";
 import AdminUsers from "../pages/users/AdminUsers";
 import GuestUsers from "../pages/users/GuestUsers";
+import UserDetail from '../pages/users/UserDetail';
 import About from "../pages/about/About";
 import Test from '../pages/test/Test';
 
@@ -96,7 +97,19 @@ export const menusRoutes = [
                     key: 'guests',
                     authIds: []
                 }
-            }
+            },
+            {
+                path: 'users/detail/',
+                component: UserDetail,
+                hiden: true,
+                meta: {
+                    title: 'Detail',
+                    isNeedLogin: true,
+                    icon: <AndroidFilled />,
+                    key: 'userDetail',
+                    authIds: []
+                }
+            },
         ]
     },
 ]

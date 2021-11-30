@@ -1,4 +1,5 @@
 import { Table } from 'antd';
+import { useNavigate } from "react-router-dom";
 
 const AdminUsers = (props) => {
     const dataSoure = [];
@@ -24,9 +25,20 @@ const AdminUsers = (props) => {
           dataIndex: 'address',
         },
     ];
+    const navigate = useNavigate();
     return(
         <div>
-            <Table columns={columns} dataSource={dataSoure} />
+            <Table 
+            columns={columns} 
+            dataSource={dataSoure} 
+            onRow={item => {
+                return {
+                    onClick: event => {
+                        navigate(`/users/detail`);
+                    }
+                }
+            }}
+            />
         </div>
     );
 }

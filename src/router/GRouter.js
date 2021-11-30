@@ -3,7 +3,6 @@ import { routes } from "./routes";
 import Page404 from "../pages/errors/Page404";
 
 function createRoutes(route) {
-    console.log(`create with route: `, route);
     if(route.children) {
         return (
             <Route 
@@ -19,7 +18,6 @@ function createRoutes(route) {
             </Route>
         )
     }else{
-        console.log(`create result: `, route);
         return (
             <Route 
             key={route.meta.key} 

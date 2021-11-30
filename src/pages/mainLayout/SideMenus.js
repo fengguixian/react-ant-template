@@ -92,7 +92,7 @@ function SideMenus(props) {
                     menus.map((route) => {
                         if(route.children) {
                             const childs = route.children.map(ch => {
-                                return (
+                                return !ch.hiden && (
                                     <Menu.Item key={ch.meta.key} icon={ch.meta.icon}>
                                         <Link key={ch.meta.key} to={ch.path}>{ch.meta.title}</Link>
                                     </Menu.Item>
@@ -104,7 +104,7 @@ function SideMenus(props) {
                                 </SubMenu>
                             );
                         }else{
-                            return (
+                            return !route.hiden  && (
                                 <Menu.Item key={route.meta.key} icon={route.meta.icon}>
                                     <Link key={route.meta.key} to={route.path}>{route.meta.title}</Link>
                                 </Menu.Item>
