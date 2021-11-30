@@ -1,9 +1,8 @@
 import { Layout, Menu } from "antd"
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { menusRoutes } from '../../router/routes'
 import './SideMenus.css'
 import { connect } from "react-redux"
-import React, { useState, useEffect } from "react";
 
 const { SubMenu } = Menu;
 const { Sider } = Layout;
@@ -42,32 +41,13 @@ function filterMenusFromMainRoutes(routes) {
 function SideMenus(props) {
     let menus = filterMenusFromMainRoutes(menusRoutes);
 
-    const [defaultOpenKeys, setDefaultOpenKeys] = useState(['home']);
-    const [defaultSelectedKeys, setDefaultSelectedKeys] = useState(['home']);
+    // 刷新页面，处理默认选中
+    let location = useLocation();
+    let pathArr = location.pathname.split('/');
 
     function menuClick(e) {
         console.log(`e: `, e);
     }
-
-    // 刷新页面，处理默认选中
-    function handleDefaultSelect(){
-        // let menuConfigKeys = [];
-        // menus.forEach((item) => {
-        //     menuConfigKeys.push(item.meta.key);
-        // });
-        // const pathname = 'home';
-        // const currentKey = 'home';
-        // if (menuConfigKeys.indexOf(currentKey) === 0) {
-        //     //setDefaultOpenKeys([currentKey]);
-        //     //setDefaultSelectedKeys([pathname]);
-        // }else{
-        //     console.log(`indexof: `, menuConfigKeys.indexOf(currentKey))
-        // }
-    };
-
-    useEffect(() => {
-        handleDefaultSelect();
-    });
 
     return (
         <Sider 
@@ -85,8 +65,7 @@ function SideMenus(props) {
             <Menu 
             onClick={menuClick}
             mode="inline"
-            defaultOpenKeys={ defaultOpenKeys }
-            defaultSelectedKeys={ defaultSelectedKeys }
+            defaultSelectedKeys={ [pathArr[pathArr.length-1]] || 'home' }
             >
                 {
                     menus.map((route) => {
