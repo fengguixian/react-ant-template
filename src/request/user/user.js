@@ -1,6 +1,5 @@
 import request from '../index'
 
-// 
 export function login(token) {
     return request({
         url: '/api/users/login',
